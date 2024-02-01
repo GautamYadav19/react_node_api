@@ -4,6 +4,8 @@ const controller =require('../controllers/index')
 
 route.post('/createUsers',controller.createUser)
 route.get('/getUsers',controller.getUser)
-route.put('/edituser/:id',controller.edituser)
+route.patch('/edituser/:id',controller.edituser)
+route.delete('/userdelete/:id',controller.deleteUser)
+
 
 module.exports = route;

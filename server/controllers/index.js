@@ -3,7 +3,6 @@ const User =require('../model/index')
 
 const createUser=async (req,res,next)=>{
 try {
-    // let result = await db.getUser()
     console.log(req.body)
     let user = new User({
         name:req.body.name,
@@ -41,5 +40,15 @@ const edituser =async(req,res)=>{
         
     }
 }
+const deleteUser =async(req,res)=>{
+    try {
+        let result= await User.deleteOne(req.params._id)
+        res.json(result);
 
-module.exports ={createUser,getUser,edituser}
+    } catch (error) {
+    res.send({status:0,error:error})
+        
+    }
+}
+
+module.exports ={createUser,getUser,edituser,deleteUser}
